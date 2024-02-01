@@ -1,12 +1,20 @@
 # app.py
 from flask import Flask, jsonify
 from bayeta import frotar
+import random
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hola, mundo desde Flask!'
+    # Llama a la función frotar sin limitar la cantidad de frases
+    resultado_frotar = frotar()
+    
+    # Elige una frase aleatoria de todas las disponibles
+    frase_aleatoria = random.choice(resultado_frotar)
+
+    # Devuelve una frase auspiciosa aleatoria en la respuesta de la ruta raíz
+    return frase_aleatoria
 
 @app.route('/frotar/<int:n_frases>', methods=['GET'])
 def obtener_frases(n_frases):
