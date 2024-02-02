@@ -8,8 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # Llama a la función frotar sin limitar la cantidad de frases
-    resultado_frotar = frotar()
-    
+    resultado_frotar = frotar()    
     # Elige una frase aleatoria de todas las disponibles
     frase_aleatoria = random.choice(resultado_frotar)
 
