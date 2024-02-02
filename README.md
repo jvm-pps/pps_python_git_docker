@@ -19,13 +19,13 @@ Sigue estos pasos para ejecutar la aplicación en un contenedor Docker:
 
 ### 1. Clonar el repositorio
 
-git clone https://github.com/jvm-pps/pps_python_git_docker.git
-cd pps_python_git_docker
+    git clone https://github.com/jvm-pps/pps_python_git_docker.git
+    cd pps_python_git_docker
 
 ### 2. Construir la imagen de docker y lanzarla
 
-docker build -t labayetadelafortuna .
-docker run -p 5000:5000 labayetadelafortuna
+    docker build -t labayetadelafortuna .
+    docker run -p 5000:5000 labayetadelafortuna
 
 La aplicación estará disponible en http://localhost:5000/.
 
