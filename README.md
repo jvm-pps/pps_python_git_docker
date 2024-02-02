@@ -1,39 +1,47 @@
-# pps_python_git_docker
-Este repositorio va a contener una aplicacion web llamada "La Bayeta de la Fortuna", la cual nos dira una frase distinta cada vez que entremos a esta.
+# La Bayeta de la Fortuna
+
+La Bayeta de la Fortuna es una aplicación web sencilla que proporciona frases auspiciosas aleatorias cada vez que se accede a la web.
 
 
 # Características
 
-- **Experto Web:**
-  - Implementación de una interfaz web sencilla.
-  - Acceso a la fortuna al visitar la ruta raíz (`/`).
-  - Obtención de frases auspiciosas en formato JSON mediante la ruta `/frotar/<n_frases>`.
 
-- **Experto en Python:**
-  - Mejora de la lógica interna de la aplicación.
-  - Generación aleatoria de frases auspiciosas a partir de una lista almacenada.
+    Implementación de una interfaz web sencilla.
+    Acceso a la fortuna al visitar la ruta raíz (/).
+    Obtención de frases auspiciosas en formato JSON mediante la ruta /frotar/<n_frases>.
 
 
 
-## Dependencias
+## Instrucciones para ejecutar la aplicación con Docker
 
-Antes de ejecutar la aplicación, asegúrate de tener Python y `venv` instalados en tu sistema. Puedes crear un entorno virtual y resolver las dependencias ejecutando el siguiente comando:
+Sigue estos pasos para ejecutar la aplicación en un contenedor Docker:
 
-python -m venv venv
-source venv/bin/activate  # En sistemas basados en Unix
-.\venv\Scripts\activate   # En sistemas Windows
-pip install -r requirements.txt
 
-## Cómo Ejecutar la Aplicación
+### 1. Clonar el repositorio
 
-Asegúrate de tener el entorno virtual activado y ejecuta la aplicación.
+git clone https://github.com/jvm-pps/pps_python_git_docker.git
+cd pps_python_git_docker
 
-*python app.py*
+### 2. Construir la imagen de docker y lanzarla
 
-*Accede a la aplicación en tu navegador: http://localhost:5000/*
+docker build -t labayetadelafortuna .
+docker run -p 5000:5000 labayetadelafortuna
 
-Recuerda desactivar el entorno virtual cuando hayas terminado:
+La aplicación estará disponible en http://localhost:5000/.
 
-*deactivate*
+
+## Cambios Recientes
+Versión 1.0.0
+
+    Se agregó la funcionalidad de frases auspiciosas utilizando bayeta.py.
+    Se ajustó la configuración del servidor para escuchar en todas las interfaces.
+    Se mejoró la gestión de dependencias utilizando Docker.
+
+
+
+
+## Licencia
+
+Este proyecto está bajo la Licencia GPL-3.0 license - ver el archivo LICENSE para más detalles.
 
 
