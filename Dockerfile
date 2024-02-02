@@ -22,6 +22,7 @@ COPY . .
 # Copia los archivos bayeta.py y frases.txt
 COPY bayeta.py .
 COPY frases.txt .
+COPY funcion_mongo.py .
 
 # Exponer el puerto en el que la aplicación se ejecutará
 #EXPOSE 5000
