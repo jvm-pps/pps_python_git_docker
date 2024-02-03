@@ -33,13 +33,22 @@ def inicializacion(datos):
         frases_auspiciosas.insert_many(datos)
 
 def consulta(cliente_mongo, frases_auspiciosas, n_frases: int = 1):
-    # Obtener frases aleatorias
-    frases_aleatorias = list(frases_auspiciosas.aggregate([{'$sample': {'size': n_frases}}]))
-    
+    # Agregación para obtener frases aleatorias
+    pipeline = [
+        {'$sample': {'size': n_frases}},  # Obtener n_frases aleatorias
+        {'$project': {'_id': 0, 'frase': 1}}  # Incluir solo el campo 'frase', excluir '_id'
+    ]
+
+    # Ejecutar la agregación
+    frases_aleatorias = frases_auspiciosas.aggregate(pipeline)
+
+    # Convertir el cursor a una lista
+    lista_frases = list(frases_aleatorias)
+
     # Cerrar cliente
     cliente_mongo.close()
 
-    return frases_aleatorias
+    return lista_frases
 
 
 # Uso de las funciones

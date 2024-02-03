@@ -8,6 +8,8 @@ La Bayeta de la Fortuna es una aplicación web sencilla que proporciona frases a
     Implementación de una interfaz web sencilla.
     Acceso a la fortuna al visitar la ruta raíz (/).
     Obtención de frases auspiciosas en formato JSON mediante la ruta /frotar/<n_frases>.
+    Almacenamiento de las frases auspiciosas en una base de datos MongoDB.
+    Despliegue de la aplicación en un contenedor Docker con docker-compose.
 
 
 ## Instrucciones para ejecutar la aplicación con Docker
@@ -19,25 +21,51 @@ Sigue estos pasos para ejecutar la aplicación en un contenedor Docker:
     git clone https://github.com/jvm-pps/pps_python_git_docker.git
     cd pps_python_git_docker
 
-### 2. Añadir una nueva red de docker
+### 2. Lanzar el contenedor
 
-    docker network create bayeta-network
+    docker-compose up -d
 
-### 3. Añadir un contenedor de mongodb
-
-    docker run --name mongodb-container --network bayeta-network -p 27017:27017 -d mongo
-
-### 4. Construir la imagen de docker y lanzarla
-
-    docker build -t labayetadelafortuna .
-    docker run --name bayeta --network bayeta-network -p 5000:5000 -d labayetadelafortuna
+    ** Si la imagen no está disponible, se construirá automáticamente.**
 
 La aplicación estará disponible en http://localhost:5000/
 
-## Cambios Recientes
-Versión 1.0.1
+### 3. Detener el contenedor
 
-    Se ha añadido la funcionalidad de almacenar las frases auspiciosas en una base de datos MongoDB.
+    docker-compose down
+
+## Uso de la aplicación
+
+La aplicación proporciona dos rutas:
+
+    - /: Muestra una frase auspiciosa aleatoria.
+    - /frotar/<n_frases>: Devuelve n_frases frases auspiciosas en formato JSON.
+
+## Requisitos
+
+    Sera necesario tener instalado docker y docker-compose en el sistema.
+    Si no los tienes instalados, puedes seguir las instrucciones en la documentación oficial de Docker:
+    https://docs.docker.com/get-docker/
+
+## Cambios Recientes
+Versión 1.0.2
+
+    - Se ha añadido un archivo docker-compose.yml para el despliegue de la aplicación en un contenedor Docker.
+    - Se ha solucionado un error en funcion_mongo.py para que funcione correctamente con la funcion frotar.
+    - 
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Si deseas contribuir, por favor sigue estos pasos:
+
+    1. Haz un fork del proyecto.
+    2. Crea una rama con tu funcionalidad: `git checkout -b mi-funcionalidad`
+    3. Realiza un commit con tus cambios: `git commit -m 'Añadir mi funcionalidad'`
+    4. Sube tu rama: `git push origin mi-funcionalidad`
+    5. Abre un pull request.
+
+## Autores
+
+-   **Javier Valle** - [jvm-pps]
 
 
 ## Licencia
