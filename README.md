@@ -44,7 +44,8 @@ La aplicación proporciona dos rutas:
 
     Sera necesario tener instalado docker y docker-compose en el sistema.
     Si no los tienes instalados, puedes seguir las instrucciones en la documentación oficial de Docker:
-    https://docs.docker.com/get-docker/
+    
+https://docs.docker.com/get-docker/
 
 ## Cambios Recientes
 Versión 1.0.2
