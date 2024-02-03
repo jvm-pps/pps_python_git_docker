@@ -58,7 +58,7 @@ Añadir frases auspiciosas a la base de datos:
 https://docs.docker.com/get-docker/
 
 ## Cambios Recientes
-Versión 1.0.3
+Versión 1.0.4
 
     - Se ha añadido la funcionalidad de añadir frases auspiciosas a la base de datos.
     - Se ha añadido una imagen en la pagina principal.
