@@ -18,6 +18,8 @@ services:
   mongodb-container:
     image: mongo
     container_name: mongodb-container
+    volumes:
+      - mongodb-data:/data/db
     ports:
       - "27017:27017"
     networks:
@@ -27,3 +29,7 @@ networks:
   bayeta-network:
     name: bayeta-network
     driver: bridge
+
+volumes:
+  mongodb-data:
+    name: mongodb-data
