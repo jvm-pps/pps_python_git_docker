@@ -40,6 +40,16 @@ La aplicación proporciona dos rutas:
     - /: Muestra una frase auspiciosa aleatoria.
     - /frotar/<n_frases>: Devuelve n_frases frases auspiciosas en formato JSON.
 
+Añadir frases auspiciosas a la base de datos:
+
+    - Puedes añadir frases desde /frotar/add/<frase> desde tu cliente REST favorito.
+
+### Ejemplo de uso
+
+    curl http://localhost:5000/
+    curl http://localhost:5000/frotar/3
+    curl -X POST -H "Content-Type: application/json" -d '{"frases": ["Nueva frase 1", "Nueva frase 2"]}' http://localhost:5000/frotar/add
+
 ## Requisitos
 
     Sera necesario tener instalado docker y docker-compose en el sistema.
@@ -48,11 +58,10 @@ La aplicación proporciona dos rutas:
 https://docs.docker.com/get-docker/
 
 ## Cambios Recientes
-Versión 1.0.2
+Versión 1.0.3
 
-    - Se ha añadido un archivo docker-compose.yml para el despliegue de la aplicación en un contenedor Docker.
-    - Se ha solucionado un error en funcion_mongo.py para que funcione correctamente con la funcion frotar.
-    - 
+    - Se ha añadido la funcionalidad de añadir frases auspiciosas a la base de datos.
+    - Se ha añadido una imagen en la pagina principal.
 
 ## Contribuciones
 
