@@ -31,6 +31,9 @@ def inicializacion(datos):
     if frases_auspiciosas.count_documents({}) == 0:
         # Inserción de datos
         frases_auspiciosas.insert_many(datos)
+        
+def insercion(frases_auspiciosas, nueva_frase):
+    frases_auspiciosas.insert_one({'frase': nueva_frase})
 
 def consulta(cliente_mongo, frases_auspiciosas, n_frases: int = 1):
     # Agregación para obtener frases aleatorias

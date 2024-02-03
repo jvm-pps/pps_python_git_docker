@@ -19,13 +19,12 @@ WORKDIR /app
 COPY --from=builder /app/venv venv
 COPY . .
 
-# Copia los archivos bayeta.py y frases.txt
+# Copia los archivos necesarios para la aplicación
 COPY bayeta.py .
 COPY frases.txt .
 COPY funcion_mongo.py .
 
-# Exponer el puerto en el que la aplicación se ejecutará
-#EXPOSE 5000
+COPY panda.png /app/static/panda.png
 
 # Comando para ejecutar la aplicación
 CMD ["venv/bin/python", "app.py"]
